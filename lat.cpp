@@ -7,7 +7,7 @@ const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
 void solve(){
-    
+        
 }
 
 int main(){
