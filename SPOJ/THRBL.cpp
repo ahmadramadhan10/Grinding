@@ -20,6 +20,7 @@ void solve(){
             st[i][j] = max(st[i - 1][j], st[i-1][j + (1 << (i - 1))]);
         }
     }
+    // remember "beetwen A and B means (A,B) not [A,B]"
     int ans = 0;
     while(q--) {
         int l, r, left; cin >> l >> r;
