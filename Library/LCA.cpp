@@ -57,7 +57,6 @@ int LCA(int u, int v){
 }
 
 void solve(){
-    vector<int>bit(LOG);
     int n, m; cin >> n;
     up.assign(n + 3, vector<int>(LOG));
     depth.assign(n, 0);
