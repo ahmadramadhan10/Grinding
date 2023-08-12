@@ -1,25 +1,43 @@
 #include<bits/stdc++.h>
-#define ll long long
+#define int long long
+#define el "\n"
 using namespace std;
 
-int N, M, Q; 
+int a[1005], b[1005];
 
-void solve(){
-    
-}  
+int32_t main() {
+    ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-int32_t main(){
-    ios_base::sync_with_stdio(0); cin.tie(nullptr);
- 
-    //freopen("input.in","r",stdin);
-    //freopen("output.out","w",stdout);
-    
-    int tc = 1; 
-    bool multi = 0;
-    if(multi) cin >> tc;
+    int TC = 1; 
+    //cin >> TC;
 
-    while(tc--){
-        solve();
+    while(TC--){
+        int n, x; cin >> n >> x;
+        for(int i = 1; i <= n; ++i) {
+            cin >> a[i];
+        }
+
+        for(int i = 1; i <= n; ++i) {
+            cin >> b[i];
+        }
+
+        vector<int>dp(x + 1); // dp sebelumnya
+        int ans = 0;
+        for(int i = 1; i <= n; ++i) {
+            vector<int>cur_dp(x + 1);
+            for(int j = 1; j <= x; ++j){
+                if(j >= a[i]) {
+                    cur_dp[j] = max(dp[j], dp[j - a[i]] + b[i]);
+                } else {
+                    cur_dp[j] = dp[j];
+                }
+            }
+            dp = cur_dp;
+            ans = max(ans, *max_element(dp.begin(), dp.end()));
+        }
+        cout << ans;
     }
 
-} 
+
+    return 0;
+}  
